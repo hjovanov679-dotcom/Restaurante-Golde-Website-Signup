@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Reserveren restaurant</title>
+        <link rel = "stylesheet" href = "style.css">
+    </head>
+<h1>Reserveren</h1>
+<input type = text name = "name" placeholder = "Naam">
+<input type = text name = "email" placeholder = "Email">
+<input type = text name = "Date" placeholder = "Datum">
+<input type = text name = "Persons" placeholder = "Aantal personen">
+<button id = Rerserve type = "submit">reserveer</button>
+</html>
