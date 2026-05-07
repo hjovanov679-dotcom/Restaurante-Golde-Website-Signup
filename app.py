@@ -28,9 +28,9 @@ def send_email(email, name, Date, Persons):
     "Content-Type": "application/json"}
 
     body = {
-      "From" = "onboarding@resend.dev"
-      "To" = email
-      "Subject" = "Bevestiging reservering"
+      "from": "onboarding@resend.dev"
+      "to": email
+      "subject": "Bevestiging reservering"
       "text": ( 
         f"Hallo {name}!\n\n"
         f"Bedankt voor u reservering bij Restaurante Golde op {Date} voor {Persons} personen.\n\n"
