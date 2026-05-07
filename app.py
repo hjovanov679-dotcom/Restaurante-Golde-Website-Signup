@@ -35,6 +35,7 @@ def send_email(email, name, Date, Persons):
     email_data.attach(MIMEtext(body, "plain"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 587) as server:
+      server.starttls()
       server.login(sender, password)
       server.sendmail(sender, email, email_data.as_string())
 
