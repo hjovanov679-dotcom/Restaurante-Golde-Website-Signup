@@ -29,7 +29,7 @@ def send_email(email, name, Date, Persons):
 
     body = {
       "from": "onboarding@resend.dev"
-      "to": email
+      "to": "email"
       "subject": "Bevestiging reservering"
       "text": ( 
         f"Hallo {name}!\n\n"
