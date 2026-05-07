@@ -20,7 +20,7 @@ def signup():
 
     send_email(email, name, Date, Persons)
 
-return "Reservering Ontvangen"
+    return "Reservering Ontvangen"
 
 def send_email(email, name, Date, Persons):
     sender = os.environ["EMAIL_USER"]
