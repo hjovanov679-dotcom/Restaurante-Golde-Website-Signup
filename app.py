@@ -31,7 +31,7 @@ def send_email(email, name, Date, Persons):
     email_data["To"] = email
     email_data["Subject"] = "Bevestiging reservering"
 
-    body = f"Hallo Mr {name}, Dankuwel voor uw reservering op {date} voor {persons} personen. We kijken er naaruit u te zien.!"
+    body = f"Hallo Mr {name}, Dankuwel voor uw reservering op {Date} voor {Persons} personen. We kijken er naaruit u te zien.!"
     email_data.attach(MIMEtext(body, "plain"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 587) as server:
