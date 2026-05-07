@@ -18,6 +18,10 @@ def signup():
     Date = request.form["Date"]
     Persons = request.form["Persons"]
 
+    send_email(name, email, Date, Persons)
+
+return "Reservering Ontvangen"
+
 def send_email(email, name, Date, Persons):
     sender = os.environ["EMAIL_USER"]
     password = os.environ["EMAIL_PASS"]
@@ -27,7 +31,7 @@ def send_email(email, name, Date, Persons):
     email_data["To"] = email
     email_data["Subject"] = "Bevestiging reservering"
 
-    body = "Hallo Mr ", name, "Dankuwel voor uw reservering op ", Date, "voor", Persons, "Persons. We kijken er naaruit u te zien.!"
+    body = f"Hallo Mr {name}, Dankuwel voor uw reservering op {date} voor {persons} personen. We kijken er naaruit u te zien.!"
     email_data.attach(MIMEtext(body, "plain"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
