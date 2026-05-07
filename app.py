@@ -32,9 +32,9 @@ def send_email(email, name, Date, Persons):
     email_data["Subject"] = "Bevestiging reservering"
 
     body = f"Hallo Mr {name}, Dankuwel voor uw reservering op {Date} voor {Persons} personen. We kijken er naaruit u te zien.!"
-    email_data.attach(MIMEtext(body, "plain"))
+    email_data.attach(MIMEText(body, "plain"))
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 587) as server:
+    with smtplib.SMTPL("smtp.gmail.com", 587) as server:
       server.starttls()
       server.login(sender, password)
       server.sendmail(sender, email, email_data.as_string())
