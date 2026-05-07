@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 from flask import Flask, request, render_template
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+import requests
 import os
 
 app = Flask(__name__)
@@ -23,21 +21,27 @@ def signup():
     return "Reservering Ontvangen"
 
 def send_email(email, name, Date, Persons):
-    sender = os.environ["EMAIL_USER"]
-    password = os.environ["EMAIL_PASS"]
+    api_key = os.environ["RESEND_API_KEY"]
 
-    email_data = MIMEMultipart()
-    email_data["From"] = sender
-    email_data["To"] = email
-    email_data["Subject"] = "Bevestiging reservering"
+    headers = {
+    "Authorization": f"Bearer {api_key}",
+    "Content-Type": "application/json"}
 
-    body = f"Hallo Mr {name}, Dankuwel voor uw reservering op {Date} voor {Persons} personen. We kijken er naaruit u te zien.!"
-    email_data.attach(MIMEText(body, "plain"))
-
-    with smtplib.SMTP("smtp.gmail.com", 587) as server:
-      server.starttls()
-      server.login(sender, password)
-      server.sendmail(sender, email, email_data.as_string())
+    body = {
+      "From" = "onboarding@resend.dev"
+      "To" = email
+      "Subject" = "Bevestiging reservering"
+      "text": ( 
+        f"Hallo {name}!\n\n"
+        f"Bedankt voor u reservering bij Restaurante Golde op {Date} voor {Persons} personen.\n\n"
+        "We kijken er naar uit u te zien!\n\n\n"
+        "Restaurante Golde, het luxste restaurant van heel de benelux!"
+      )
+}  
+    response = requests.post(
+    "https://api.resend.com/emails",
+    headers=headers,
+    json=body)
 
 if __name__ == "__main__":
     app.run(debug=True)
