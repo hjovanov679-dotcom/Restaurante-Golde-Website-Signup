@@ -1,0 +1,14 @@
+Body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+    font-size: 50px;
+}
+input {
+    width: 350px;
+    height: 40px;
+    font-size: 20px;
+    padding: 10px;
+    border-width: 2px;
+    border-radius: 6px;
+}
