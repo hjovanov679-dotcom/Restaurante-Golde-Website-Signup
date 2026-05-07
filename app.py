@@ -18,7 +18,7 @@ def signup():
     Date = request.form["Date"]
     Persons = request.form["Persons"]
 
-    send_email(name, email, Date, Persons)
+    send_email(email, name, Date, Persons)
 
 return "Reservering Ontvangen"
 
