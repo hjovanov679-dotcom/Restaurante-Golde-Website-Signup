@@ -16,3 +16,8 @@ openingstijden {
     font-size: 20px;
     text_align: center;
 }
+button {
+    width: 100px
+    height: 20px
+    font-size: 12px
+}
