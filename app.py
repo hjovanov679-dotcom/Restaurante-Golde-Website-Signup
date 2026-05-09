@@ -28,7 +28,7 @@ def send_email(email, name, Date, Persons):
     "Content-Type": "application/json"}
 
     body = {
-      "from": "restaurante-golde.nl",
+      "from": "reserveringen@restaurante-golde.nl",
       "to": email,
       "subject": "Bevestiging reservering",
       "text": ( 
